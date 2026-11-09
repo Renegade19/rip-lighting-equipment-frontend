@@ -1,0 +1,73 @@
+/* LumiCalc: мобильный макет ЛР1; палитра LEDVANCE.
+   #f66300 — оранжевые кнопки/активная вкладка; #201f27 — текст/лента;
+   #e3e3e5 — светло-серые карточки; #fff — основной фон.
+   Референс Figma: https://www.figma.com/design/4K5rICTM65jP6Hur1rlF0E/Untitled?node-id=2-6 */
+:root { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #201f27; background: #fff; --lighting-equipment-orange: #f66300; --lighting-equipment-dark: #201f27; }
+* { box-sizing: border-box; }
+body { margin: 0; color: #201f27; background: #fff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+a { text-decoration: none; }
+button, a, input { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid #f66300; outline-offset: 3px; }
+.lighting-equipment-screen { width: 100%; max-width: 420px; height: 100vh; height: 100dvh; margin: 0 auto; display: flex; flex-direction: column; overflow: hidden; background: #fff; }
+.lighting-equipment-content { flex: 1; min-height: 0; overflow-y: auto; }
+.lighting-equipment-tile-page { padding: 20px 20px 24px; }
+.lighting-equipment-power-filter { border: 1px solid #e3e3e5; border-radius: 8px; padding: 14px 16px 16px; margin-bottom: 14px; }
+.lighting-equipment-filter-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.lighting-equipment-filter-heading h2 { font-size: 15px; font-weight: 500; margin: 0; }
+.lighting-equipment-filter-heading output { color: #f66300; font-weight: 600; font-size: 15px; }
+.lighting-equipment-filter-row { display: flex; gap: 10px; align-items: center; margin-bottom: 5px; }
+.lighting-equipment-filter-row label { width: 22px; margin: 0; color: #909098; font-size: 13px; }
+.lighting-equipment-filter-row input { flex: 1; width: 0; }
+.form-range::-webkit-slider-thumb { background: #f66300; }
+.form-range::-moz-range-thumb { background: #f66300; }
+.form-range::-webkit-slider-thumb:active { background: #cc4902; }
+.form-range::-webkit-slider-runnable-track { background: #e3e3e5; }
+.lighting-equipment-filter-scale { display: flex; justify-content: space-between; padding-left: 32px; font-size: 12px; color: #909098; }
+.lighting-equipment-apply-power.btn { width: 100%; margin-top: 14px; min-height: 44px; border: 0; background: #f66300; border-radius: 6px; font-size: 15px; font-weight: 500; }
+.lighting-equipment-apply-power.btn:hover, .lighting-equipment-apply-power.btn:active { background: #cc4902; }
+.lighting-equipment-result-count { margin: 0 0 12px; color: #71717b; font-size: 12px; }
+.lighting-equipment-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; gap: 16px; }
+.lighting-equipment-card.card { color: #201f27; background: #e3e3e5; border: 1px solid #e3e3e5; border-radius: 8px; overflow: hidden; transition: border-color .15s, box-shadow .15s; }
+.lighting-equipment-card.card:hover { border-color: #f66300; box-shadow: 0 3px 12px #201f2712; }
+.lighting-equipment-card-image.card-img { width: 100%; height: 155px; object-fit: contain; border-radius: 0; background: #fff; }
+.lighting-equipment-card .card-body { padding: 12px; display: flex; flex-direction: column; }
+.lighting-equipment-card .card-title { font-size: 17px; line-height: 1.3; font-weight: 400; overflow-wrap: anywhere; margin: 0 0 8px; }
+.lighting-equipment-card-power { font-size: 14px; color: #62626b; margin: auto 0 6px; }
+.lighting-equipment-likes { display: inline-flex; align-items: center; gap: 5px; color: #d94e00; font-size: 15px; }
+.lighting-equipment-likes svg { width: 18px; height: 18px; }
+.lighting-equipment-navigation.navbar { flex-shrink: 0; width: 100%; background: #f5f5f5; border-top: 1px solid #e3e3e5; padding: 10px 4px max(16px, env(safe-area-inset-bottom)); }
+.lighting-equipment-navigation .navbar-nav { width: 100%; flex-direction: row; }
+.lighting-equipment-navigation .nav-link { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; min-height: 48px; padding: 4px 0; font-size: 11px; line-height: 1.2; color: #74747d; background: transparent; border: 0; }
+.lighting-equipment-navigation .nav-link svg { width: 23px; height: 23px; }
+.lighting-equipment-navigation .nav-link.active { color: #f66300; }
+.lighting-equipment-navigation .nav-link.disabled { color: #92929b; cursor: not-allowed; opacity: .65; }
+.lighting-equipment-screen-feed { background: #201f27; }
+.lighting-equipment-screen-feed .lighting-equipment-content { overflow: hidden; }
+.lighting-equipment-screen-feed .lighting-equipment-navigation { background: #201f27; border-color: #201f27; }
+.lighting-equipment-screen-feed .lighting-equipment-navigation .nav-link { color: #c1c1c8; }
+.lighting-equipment-screen-feed .lighting-equipment-navigation .nav-link.active { color: #f66300; }
+.lighting-equipment-screen-feed .lighting-equipment-navigation .nav-link.disabled { color: #909098; }
+.lighting-equipment-feed { height: 100%; min-height: 0; position: relative; overflow: hidden; background: #fff; }
+.lighting-equipment-feed-video { display: block; width: 100%; height: 100%; object-fit: contain; background: #fff; }
+.lighting-equipment-video-caption { position: absolute; top: 14px; left: 14px; max-width: calc(100% - 28px); padding: 5px 9px; border-radius: 5px; font-size: 11px; background: #201f27c4; color: #fff; }
+.lighting-equipment-feed-gradient { position: absolute; inset: 32% 0 0; pointer-events: none; background: linear-gradient(transparent, #201f27 93%); }
+.lighting-equipment-feed-info { position: absolute; left: 16px; right: 95px; bottom: 18px; max-height: 70%; overflow-y: auto; color: white; }
+.lighting-equipment-feed-info h1 { font-size: 18px; line-height: 1.35; font-weight: 600; margin: 0 0 8px; text-shadow: 0 1px 4px #201f27; }
+.lighting-equipment-feed-info p { font-size: 14px; line-height: 1.45; margin: 0; color: #eeeef1; text-shadow: 0 1px 3px #201f27; }
+.lighting-equipment-description-short { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+.lighting-equipment-description-toggle.btn { margin-top: 5px; color: #ff8a3d; padding: 3px 0; border: 0; font-size: 14px; text-decoration: none; }
+.lighting-equipment-feed-side { position: absolute; right: 12px; bottom: 20px; width: 66px; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.lighting-equipment-feed-spec { width: 100%; padding: 7px 3px; display: flex; flex-direction: column; align-items: center; gap: 2px; background: #201f27b8; border-radius: 8px; color: #fff; }
+.lighting-equipment-feed-spec strong { font-size: 15px; }
+.lighting-equipment-feed-spec span { font-size: 10px; color: #e3e3e5; }
+.lighting-equipment-feed-likes { display: flex; flex-direction: column; gap: 4px; align-items: center; color: #ff8a3d; font-size: 15px; }
+.lighting-equipment-feed-likes svg { width: 29px; height: 29px; }
+.lighting-equipment-next.btn { color: #fff; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0; font-size: 11px; text-decoration: none; border: 0; }
+.lighting-equipment-next svg { width: 35px; height: 35px; border-radius: 50%; background: #f66300; padding: 6px; }
+.lighting-equipment-next.btn:disabled { color: #aaaab2; opacity: .55; }
+.lighting-equipment-loading { display: flex; justify-content: center; padding: 36px; color: #f66300; }
+.lighting-equipment-empty { margin-top: 16px; font-size: 14px; color: #62626b; }
+.lighting-equipment-feed-unavailable { padding: 30px 20px; }
+.lighting-equipment-feed-unavailable a { display: block; color: #cc4902; margin-top: 14px; }
+.lighting-equipment-not-found { padding: 36px 20px; }
+.lighting-equipment-not-found h1 { font-size: 22px; }
