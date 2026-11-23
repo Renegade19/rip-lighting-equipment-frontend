@@ -1,4 +1,6 @@
+export interface LightingEquipmentAttribute { attributeId?: number; attributeName: string; attributeValue: string }
 export interface LightingEquipment {
+  attributes?: LightingEquipmentAttribute[]
   equipmentId: number
   equipmentName: string
   shortDescription: string

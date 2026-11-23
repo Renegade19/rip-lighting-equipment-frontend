@@ -1,22 +1,25 @@
 import { useEffect, useState } from 'react'
-import { Alert, Button } from 'react-bootstrap'
+import { Alert, Button, Modal } from 'react-bootstrap'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { LightingEquipmentVideo } from '../components/LightingEquipmentVideo'
 import { LightingEquipmentIcon } from '../components/LightingEquipmentIcon'
 import { getLightingEquipmentById, getNextLightingEquipment } from '../modules/lightingEquipmentRepository'
+import { LightingEquipmentAttributeList } from '../components/LightingEquipmentAttributes'
 import type { LightingEquipment } from '../types/lightingEquipment'
 
 function LightingEquipmentFeedContent({ lightingEquipment, nextLightingEquipment }: {
   lightingEquipment: LightingEquipment; nextLightingEquipment?: LightingEquipment
 }) {
   const navigate = useNavigate()
+  const [showAttributes, setShowAttributes] = useState(false)
   const [isLightingEquipmentDescriptionExpanded, setIsLightingEquipmentDescriptionExpanded] = useState(false)
   useEffect(() => { document.title = `${lightingEquipment.equipmentName} — LumiCalc` }, [lightingEquipment.equipmentName])
-  return <article className="lighting-equipment-feed">
+  return <><Modal show={showAttributes} onHide={() => setShowAttributes(false)} centered scrollable><Modal.Header closeButton><Modal.Title>Характеристики светильника</Modal.Title></Modal.Header><Modal.Body><LightingEquipmentAttributeList attributes={lightingEquipment.attributes} /></Modal.Body></Modal><article className="lighting-equipment-feed">
     <LightingEquipmentVideo key={lightingEquipment.equipmentId} lightingEquipment={lightingEquipment} />
     <div className="lighting-equipment-feed-gradient" />
     <div className="lighting-equipment-feed-info">
       <h1>{lightingEquipment.equipmentName}</h1>
+      <Button variant="link" className="lighting-equipment-description-toggle" onClick={() => setShowAttributes(true)}>Характеристики</Button>
       <p id="lighting-equipment-description" className={isLightingEquipmentDescriptionExpanded ? '' : 'lighting-equipment-description-short'}>{lightingEquipment.shortDescription}</p>
       <Button variant="link" className="lighting-equipment-description-toggle"
         aria-expanded={isLightingEquipmentDescriptionExpanded} aria-controls="lighting-equipment-description"
@@ -35,7 +38,7 @@ function LightingEquipmentFeedContent({ lightingEquipment, nextLightingEquipment
           if (nextLightingEquipment) navigate(`/lighting-equipment/feed/${nextLightingEquipment.equipmentId}`)
         }}><LightingEquipmentIcon name="next" /><span>Далее</span></Button>
     </aside>
-  </article>
+  </article></>
 }
 
 export function LightingEquipmentFeedPage({ lightingEquipment }: { lightingEquipment: LightingEquipment[] }) {

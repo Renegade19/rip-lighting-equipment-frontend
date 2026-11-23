@@ -163,3 +163,7 @@ Axios и Redux Toolkit оставлены для ЛР6; Context не испол�
 - React Router: https://reactrouter.com/start/declarative/routing
 - React-Bootstrap: https://react-bootstrap.github.io/docs/getting-started/introduction
 - Vite: https://vite.dev/guide/
+
+## Дополнительные характеристики
+
+В подробной ленте кнопка «Характеристики» показывает произвольные наименования и значения из массива `attributes` mock-объекта. У разных моделей набор различается: у модели 1 — цоколь E27 и управление Matter, у модели 4 — только цоколь E14. В ЛР5 используются только mock и локальное состояние React, без Redux и API. Серверная модель ЛР4 содержит справочник атрибутов и вертикальную таблицу значений м-м; схема описана в `docs/lighting-attributes.md`.

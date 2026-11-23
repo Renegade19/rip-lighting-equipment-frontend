@@ -71,3 +71,13 @@ button, a, input { -webkit-tap-highlight-color: transparent; }
 .lighting-equipment-feed-unavailable a { display: block; color: #cc4902; margin-top: 14px; }
 .lighting-equipment-not-found { padding: 36px 20px; }
 .lighting-equipment-not-found h1 { font-size: 22px; }
+
+/* Дополнительные характеристики доступны из подробной страницы. */
+.lighting-equipment-attributes { margin: 18px 0; }
+.lighting-equipment-attributes > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; padding: 10px 0; border-bottom: 1px solid #ddd; overflow-wrap: anywhere; }
+.lighting-equipment-attributes dd { margin: 0; }
+.lighting-equipment-attribute-editor { margin: 22px 0; }
+.lighting-equipment-attribute-editor h2 { font-size: 19px; }
+.lighting-equipment-attribute-editor p { font-size: 13px; color: #62626b; }
+.lighting-equipment-attribute-row { display: grid; gap: 8px; margin: 14px 0; padding: 12px; border: 1px solid #ddd; border-radius: 6px; }
+.lighting-equipment-attribute-row .btn { justify-self: start; margin: 0; }
